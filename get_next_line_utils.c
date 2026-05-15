@@ -12,42 +12,46 @@ size_t	ft_strlen(const char *s)
 	return (index);
 }
 
-char	*ft_strjoin(char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*joined;
+	char	*join;
+	size_t	len1;
+	size_t	len2;
 	size_t	i;
-	size_t	j;
 
-	if (!s1 || !s2)
-		return (NULL);
-	joined = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!joined)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = malloc(len1 + len2 + 1);
+	if (!join)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (i < len1)
 	{
-		joined[i] = s1[i];
+		join[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (s2[j])
+	while (i < len1 + len2)
 	{
-		joined[i + j] = s2[j];
-		j++;
+		join[i] = s2[i - len1];
+		i++;
 	}
-	joined[i + j] = '\0';
-	free(s1);
-	return (joined);
+	join[i] = '\0';
+	return (join);
 }
 
 char	*ft_strchr(const char *s, int c)
 {
+	unsigned char	uc;
+
+	uc = (unsigned char)c;
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == uc)
 			return ((char *)s);
 		s++;
 	}
+	if (uc == '\0')
+		return ((char *)s);
 	return (NULL);
 }
 
@@ -55,36 +59,42 @@ char	*ft_strdup(const char *s)
 {
 	char	*dup;
 	size_t	len;
-
-	len = ft_strlen(s);
-	dup = malloc(len + 1);
-	if (!dup)
-		return (NULL);
-	ft_memcpy(dup, s, len);
-	dup[len] = '\0';
-	return (dup);
-}
-
-char	*ft_substr(const char *s, unsigned int start, size_t len)
-{
-	char	*substr;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	substr = malloc(len + 1);
-	if (!substr)
+	len = ft_strlen(s);
+	dup = (char *)malloc(len + 1);
+	if (!dup)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		substr[i] = s[start + i];
+		dup[i] = s[i];
 		i++;
 	}
-	substr[i] = '\0';
-	return (substr);
+	dup[i] = '\0';
+	return (dup);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*sub;
+	size_t	i;
+	size_t	slen;
+
+	slen = ft_strlen(s);
+	if (start >= slen)
+		return (ft_strdup(""));
+	if (len > slen - start)
+		len = slen - start;
+	sub = malloc(len + 1);
+	if (!sub)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		sub[i] = s[start + i];
+		i++;
+	}
+	sub[i] = '\0';
+	return (sub);
 }
