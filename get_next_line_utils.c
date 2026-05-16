@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtajima <mtajima@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/16 13:40:51 by mtajima           #+#    #+#             */
+/*   Updated: 2026/05/16 14:02:15 by mtajima          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	index;
 
+	if (!s)
+		return (0);
 	index = 0;
 	while (s[index])
 	{
@@ -19,11 +33,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len2;
 	size_t	i;
 
-	if (!s2)
-		return (NULL);
-	len1 = 0;
-	if (s1)
-		len1 = ft_strlen(s1);
+	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	join = malloc(len1 + len2 + 1);
 	if (!join)
