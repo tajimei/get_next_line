@@ -6,7 +6,7 @@
 /*   By: mtajima <mtajima@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 13:41:28 by mtajima           #+#    #+#             */
-/*   Updated: 2026/05/16 13:41:29 by mtajima          ###   ########.fr       */
+/*   Updated: 2026/05/20 17:26:37 by mtajima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 #  define BUFFER_SIZE 42
 # endif
 
-/* メイン関数 */
 char	*get_next_line(int fd);
 
-/* ユーティリティ関数 */
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);

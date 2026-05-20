@@ -24,14 +24,14 @@ By repeatedly calling `get_next_line(int fd)`, you can retrieve one line at a ti
 ### Compilation
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 main.c get_next_line.c get_next_line_utils.c
 ```
 
 You can change `BUFFER_SIZE` to any value. If omitted, the default value (42) is used.
 
 ```bash
 # Without specifying BUFFER_SIZE
-cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c
 ```
 
 ### Usage Example
@@ -191,14 +191,14 @@ The implementation itself was designed and written independently without relying
 ### コンパイル方法
 
 ```bash
-cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 main.c get_next_line.c get_next_line_utils.c
 ```
 
 `BUFFER_SIZE` は任意の値に変更可能です。省略した場合はデフォルト値（42）が使用されます。
 
 ```bash
 # BUFFER_SIZE を指定しない場合
-cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c
+cc -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c
 ```
 
 ### 使用例

@@ -6,7 +6,7 @@
 /*   By: mtajima <mtajima@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 13:41:18 by mtajima           #+#    #+#             */
-/*   Updated: 2026/05/16 14:12:39 by mtajima          ###   ########.fr       */
+/*   Updated: 2026/05/20 17:26:15 by mtajima          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*read_to_buffer(int fd, char *stash)
 	}
 	free(buffer);
 	if (bytes_read < 0)
-		return (NULL);
+		return (free(stash), NULL);
 	return (stash);
 }
 
