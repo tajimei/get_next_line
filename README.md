@@ -157,14 +157,6 @@ The following describes how AI was used in this project:
 The implementation itself was designed and written independently without relying on AI.
 
 ---
-
-## Notes
-
-- Works correctly with extreme `BUFFER_SIZE` values such as `1` or `9999`
-- Reading binary files results in undefined behavior
-- `lseek()` is not used
-- No global variables are used
----
 *以下日本語版*
 
 # get_next_line
@@ -322,12 +314,3 @@ get_next_line が呼ばれる
 | READMEの作成 | 本ファイルの作成補助 |
 
 実装そのものはAIに依存せず、自分で設計・実装しました。
-
----
-
-## Notes
-
-- `BUFFER_SIZE` が `1` や `9999` など極端な値でも正しく動作します
-- バイナリファイルの読み取りは未定義動作となります
-- `lseek()` は使用していません
-- グローバル変数は使用していません
